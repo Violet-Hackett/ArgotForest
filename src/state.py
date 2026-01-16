@@ -65,3 +65,11 @@ def window_height() -> int:
     """
     return window_size()[1]
 
+def root_mouse_position() -> tuple[int, int]:
+    """
+    Calculates the relative mouse position mapped onto the root surface.
+    
+    :rtype: tuple[int, int]
+    """
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    return (int(mouse_x / window_scale), int(mouse_y / window_scale))

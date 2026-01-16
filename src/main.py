@@ -28,8 +28,11 @@ while(state.running):
     if state.key_is_down(pygame.K_ESCAPE):
         quit()
     
-    #current_page.update()
-    current_page.render(root)
+    current_page.update()
+
+    raw_frame = pygame.Surface(state.ROOT_SIZE)
+    current_page.render(raw_frame)
+    pygame.transform.scale_by(raw_frame, state.window_scale, root)
 
     pygame.display.update()
     fpsClock.tick(state.FPS)
