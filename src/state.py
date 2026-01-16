@@ -1,4 +1,6 @@
 import pygame
+import sys
+from pathlib import Path
 
 from page_keys import PageKey
 
@@ -7,6 +9,7 @@ running: bool = True
 STARTUP_PAGE: PageKey = PageKey.DEBUG_PAGE
 FPS = 60
 tick_count: int = 0
+current_page = None
 
 _events_last_updated_tick: int = 0
 _events: list[pygame.Event] = []
@@ -33,10 +36,21 @@ def key_is_down(key: int) -> bool:
             return True
     return False
 
+# Filepaths
+def get_base_path() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent.parent
+
+ARGOT_JUNGLE_FP = get_base_path()
+BIN_FP = f"{ARGOT_JUNGLE_FP}\\bin"
+FONTS_FP = f"{BIN_FP}\\fonts"
+TEXTURES_FP = f"{BIN_FP}\\textures"
+
 # Window & root variables and helpers
-ROOT_SIZE: tuple[int, int] = (300, 200)
+ROOT_SIZE: tuple[int, int] = (200, 420)
 ROOT_WIDTH, ROOT_HEIGHT = ROOT_SIZE
-window_scale: int = 2
+window_scale: float = 1.5
 
 def window_size() -> tuple[int, int]:
     """

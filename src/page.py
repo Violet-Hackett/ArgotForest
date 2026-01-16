@@ -3,6 +3,7 @@ import pygame
 
 from page_keys import PageKey
 import ui
+import state
 
 class Page:
     __metaclass__ = ABCMeta

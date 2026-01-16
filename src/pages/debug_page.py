@@ -12,7 +12,7 @@ class DebugPage(Page):
         super().__init__()
 
     def construct(self):
-        test_button = ui.Button(pygame.Rect(50, 50, 50, 10), 'test_button')
+        test_button = ui.Button(pygame.Rect(50, 50, 35, 16), text = "Test", id = 'test_button')
         self.ui_elements.append(test_button)
 
     def render(self, root: Surface):

@@ -2,6 +2,7 @@ from page import Page
 from page_keys import PageKey
 
 from pages.debug_page import DebugPage
+import state
 
 SUPPORTED_PAGES: list[type[Page]] = [
     DebugPage
