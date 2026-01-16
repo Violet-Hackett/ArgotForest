@@ -19,3 +19,10 @@ class Page:
         :type root: pygame.Surface
         """
         raise NotImplementedError
+    
+    @abstractmethod
+    def update(self):
+        """
+        Updates the page
+        """
+        raise NotImplementedError

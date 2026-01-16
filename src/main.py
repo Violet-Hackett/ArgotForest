@@ -16,19 +16,23 @@ pygame.display.set_caption('Argot Forest')
 current_page = get_page(state.STARTUP_PAGE)()
 
 def quit():
+    state.running = False
     pygame.quit()
     sys.exit()
 
 while(state.running):
 
-    for event in pygame.event.get():
+    for event in state.get_events():
         if event.type == pygame.QUIT:
-            state.running = False
-            continue
+            quit()
+    if state.key_is_down(pygame.K_ESCAPE):
+        quit()
     
+    #current_page.update()
     current_page.render(root)
 
     pygame.display.update()
     fpsClock.tick(state.FPS)
+    state.tick_count += 1
 
 quit()
