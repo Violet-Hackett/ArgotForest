@@ -15,8 +15,8 @@ def load_texture(texture_name: str) -> pygame.Surface:
     return pygame.image.load(f"{state.TEXTURES_FP}\\{texture_name}.png")
 
 pygame.font.init()
-DEFAULT_TEXT_SIZE = 15
-DEFAULT_FONT = pygame.Font(f"{state.FONTS_FP}\\matchup-pro-v1.1\\MatchupPro.ttf", DEFAULT_TEXT_SIZE)
+DEFAULT_TEXT_SIZE = 16
+DEFAULT_FONT = pygame.Font(f"{state.FONTS_FP}\\Tiny5\\Tiny5.ttf", DEFAULT_TEXT_SIZE)
 DEFAULT_TEXT_COLOR = pygame.Color(16, 32, 17)
 def render_text(text: str, color: pygame.Color = DEFAULT_TEXT_COLOR):
     """
@@ -53,6 +53,7 @@ class ButtonState(Enum):
     HOVERED = 1
     PRESSED = 2
 
+DEFAULT_BUTTON_HEIGHT = 20
 DEFAULT_BUTTON_COLOR = pygame.Color(145, 182, 146)
 HOVERED_BUTTON_COLOR_LIGHTENING = 5.0
 PRESSED_BUTTON_COLOR_LIGHTENING = -5.0

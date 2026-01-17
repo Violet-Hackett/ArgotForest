@@ -36,6 +36,32 @@ def key_is_down(key: int) -> bool:
             return True
     return False
 
+# Page navigation
+SUPPORTED_PAGES: list[type] = []
+
+def get_page(page_key: PageKey) -> type:
+    """
+    Finds and returns the page type of the assosiated page key
+    
+    :param page_key: The assosiated page key
+    :type page_key: PageKey
+    :return: The assosiated page type
+    :rtype: type[Page]
+    """
+    for _page in SUPPORTED_PAGES:
+        if _page.PAGE_KEY == page_key:
+            return _page
+    raise IndexError(f"No page found with page key \'{page_key}\'")
+
+def navigate_to(page_key: PageKey, *page_args):
+        """
+        Navigate to a new page with the corresponding page key
+
+        :type page_key: PageKey
+        """
+        global current_page
+        current_page = get_page(page_key)(*page_args)
+
 # Filepaths
 def get_base_path() -> Path:
     """

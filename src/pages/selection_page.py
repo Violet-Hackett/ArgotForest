@@ -19,14 +19,19 @@ class SelectionPage(Page):
 
         selection_btn_width = 75
         lesson_selection_button = ui.Button(pygame.Rect(state.ROOT_WIDTH/2 - selection_btn_width /2,
-                                                        state.ROOT_HEIGHT - 32, selection_btn_width, 16), 
+                                                        state.ROOT_HEIGHT - ui.DEFAULT_BUTTON_HEIGHT*2, 
+                                                        selection_btn_width, ui.DEFAULT_BUTTON_HEIGHT), 
                                             text = lessons[self._selected_lesson_index].title, 
                                             id = 'lesson_selection_button')
 
-        back_button = ui.Button(pygame.Rect(lesson_selection_button.hitbox.left - 32, state.ROOT_HEIGHT - 32, 
-                                            16, 16), "<", id = 'back_button')
-        foward_button = ui.Button(pygame.Rect(lesson_selection_button.hitbox.right + 16, state.ROOT_HEIGHT - 32, 
-                                            16, 16), ">", id = 'foward_button')
+        back_button = ui.Button(pygame.Rect(lesson_selection_button.hitbox.left - ui.DEFAULT_BUTTON_HEIGHT*2, 
+                                            state.ROOT_HEIGHT - ui.DEFAULT_BUTTON_HEIGHT*2, 
+                                            ui.DEFAULT_BUTTON_HEIGHT, ui.DEFAULT_BUTTON_HEIGHT), "<", 
+                                            id = 'back_button')
+        foward_button = ui.Button(pygame.Rect(lesson_selection_button.hitbox.right + ui.DEFAULT_BUTTON_HEIGHT, 
+                                              state.ROOT_HEIGHT - ui.DEFAULT_BUTTON_HEIGHT*2, 
+                                            ui.DEFAULT_BUTTON_HEIGHT, ui.DEFAULT_BUTTON_HEIGHT), ">", 
+                                            id = 'foward_button')
         
         self.ui_elements += [lesson_selection_button, back_button, foward_button]
 
@@ -44,7 +49,7 @@ class SelectionPage(Page):
         if self.get_element('foward_button').released(): # type: ignore
             self._select_lesson(self._selected_lesson_index + 1)
         if self.get_element('lesson_selection_button').released(): # type: ignore
-            print("Lesson selected")
+            state.navigate_to(PageKey.LESSON_PAGE, self._selected_lesson)
 
     def _select_lesson(self, lesson_index: int):
         """
