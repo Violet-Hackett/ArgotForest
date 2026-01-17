@@ -1,4 +1,6 @@
 {
-    "seen_vocab": [],
-    "known_vocab": []
+    "Russian": {
+        "seen_vocab": ["привет"],
+        "known_vocab": []
+    }
 }

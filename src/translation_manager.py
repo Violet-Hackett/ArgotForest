@@ -6,6 +6,7 @@ LIBRE_CMD = ["libretranslate", "--host", "127.0.0.1", "--port", "5000"]
 SERVER_ADDRESS = "http://127.0.0.1:5000/translate"
 
 # Run locally hosted libretranslate server in another process
+print("Starting libretranslate server...")
 server = subprocess.Popen(
     LIBRE_CMD,
     stdout=subprocess.DEVNULL,
@@ -46,6 +47,3 @@ def terminate_server():
     """
     server.terminate()
     server.wait()
-
-print(get_translations("Hi!", "en", "ru"))
-print(get_translations("How are you?", "en", "ru"))
