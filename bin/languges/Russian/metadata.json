@@ -1,0 +1,6 @@
+{
+    "name": "Russian",
+    "abbreviation": "ru",
+    "spacy_model": "ru_core_news_sm",
+    "direction": "right"
+}

@@ -6,6 +6,8 @@ import sys
 import state
 import pages
 from lesson import load_lessons
+from translation_manager import terminate_server
+from language import Language
 
 # Window setup
 pygame.init()
@@ -14,6 +16,7 @@ root = pygame.display.set_mode(state.window_size())
 pygame.display.set_caption('Argot Forest')
 
 # Program state setup
+state.TARGET_LANGUAGE = Language.load(state.TARGET_LANGUAGE_NAME)
 load_lessons()
 state.current_page = state.get_page(state.STARTUP_PAGE)()
 
@@ -22,6 +25,7 @@ def quit():
     Quits the program
     """
     state.running = False
+    terminate_server()
     pygame.quit()
     sys.exit()
 

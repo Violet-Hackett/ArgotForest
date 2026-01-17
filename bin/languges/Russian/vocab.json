@@ -1,0 +1,12 @@
+{
+    "vocab": [
+        {
+            "term": "Привет",
+            "translations": ["Hi", "Hello", "Hey"]
+        },
+        {
+            "term": "Дело",
+            "translations": ["Case", "Business"]
+        }
+    ]
+}

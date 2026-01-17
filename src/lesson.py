@@ -4,9 +4,10 @@ import os
 import state
 
 class Lesson:
-    def __init__(self, title: str, id: str):
+    def __init__(self, title: str, id: str, lines: list[str]):
         self.title = title
         self.id = id
+        self.lines = lines
 
     @staticmethod
     def load(lesson_id: str):

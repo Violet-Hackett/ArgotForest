@@ -10,6 +10,8 @@ STARTUP_PAGE: PageKey = PageKey.SELECTION_PAGE
 FPS = 60
 tick_count: int = 0
 current_page = None
+TARGET_LANGUAGE_NAME: str = "Russian"
+TARGET_LANGUAGE = None
 
 _events_last_updated_tick: int = 0
 _events: list[pygame.Event] = []
@@ -76,6 +78,7 @@ def get_base_path() -> Path:
 ARGOT_JUNGLE_FP = get_base_path()
 BIN_FP = f"{ARGOT_JUNGLE_FP}\\bin"
 FONTS_FP = f"{BIN_FP}\\fonts"
+LANGUAGES_FP = f"{BIN_FP}\\languages"
 LESSONS_FP = f"{BIN_FP}\\lessons"
 TEXTURES_FP = f"{BIN_FP}\\textures"
 

@@ -1,4 +1,8 @@
 {
     "title": "Lesson 0",
-    "id": "lesson_0"
+    "id": "lesson_0",
+    "lines": [
+        "Hi!",
+        "How are you?"
+    ]
 }
