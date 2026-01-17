@@ -5,6 +5,7 @@ import sys
 # Internal libraries
 import state
 from pages.supported_pages import get_page
+from lesson import load_lessons
 
 # Window setup
 pygame.init()
@@ -13,6 +14,7 @@ root = pygame.display.set_mode(state.window_size())
 pygame.display.set_caption('Argot Forest')
 
 # Program state setup
+load_lessons()
 state.current_page = get_page(state.STARTUP_PAGE)()
 
 def quit():

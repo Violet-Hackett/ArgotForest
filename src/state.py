@@ -6,7 +6,7 @@ from page_keys import PageKey
 
 # Program state variables
 running: bool = True
-STARTUP_PAGE: PageKey = PageKey.DEBUG_PAGE
+STARTUP_PAGE: PageKey = PageKey.SELECTION_PAGE
 FPS = 60
 tick_count: int = 0
 current_page = None
@@ -38,6 +38,11 @@ def key_is_down(key: int) -> bool:
 
 # Filepaths
 def get_base_path() -> Path:
+    """
+    Gets the absolute file path to the ArgotForest folder
+    
+    :rtype: Path
+    """
     if getattr(sys, "frozen", False):
         return Path(sys.executable).resolve().parent
     return Path(__file__).resolve().parent.parent
@@ -45,10 +50,11 @@ def get_base_path() -> Path:
 ARGOT_JUNGLE_FP = get_base_path()
 BIN_FP = f"{ARGOT_JUNGLE_FP}\\bin"
 FONTS_FP = f"{BIN_FP}\\fonts"
+LESSONS_FP = f"{BIN_FP}\\lessons"
 TEXTURES_FP = f"{BIN_FP}\\textures"
 
 # Window & root variables and helpers
-ROOT_SIZE: tuple[int, int] = (200, 420)
+ROOT_SIZE: tuple[int, int] = (700, 450)
 ROOT_WIDTH, ROOT_HEIGHT = ROOT_SIZE
 window_scale: float = 1.5
 

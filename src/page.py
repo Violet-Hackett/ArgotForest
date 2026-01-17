@@ -56,6 +56,15 @@ class Page:
         """
         raise NotImplementedError
     
+    def render_all_elements(self, root: pygame.Surface):
+        """
+        Renders all contained ui elements to the given root surface.
+        
+        :type root: pygame.Surface
+        """
+        for ui_element in self.ui_elements:
+            ui_element.render(root)
+    
     def get_element(self, id: str) -> ui.UIElement:
         """
         Gets the contained ui element matching given id.

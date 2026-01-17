@@ -2,10 +2,12 @@ from page import Page
 from page_keys import PageKey
 
 from pages.debug_page import DebugPage
+from pages.selection_page import SelectionPage
 import state
 
 SUPPORTED_PAGES: list[type[Page]] = [
-    DebugPage
+    DebugPage,
+    SelectionPage
 ]
 
 def get_page(page_key: PageKey) -> type[Page]:
